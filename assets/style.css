@@ -162,3 +162,24 @@ ul.mono{font-size:14px;margin:0}ul.mono li{font-size:14px;font-family:var(--mono
 .links a.sub{color:var(--accent)}.links a.sub:hover{color:var(--ink)}
 .bio .signup{padding:44px 0 8px;margin-top:48px;border-top:1px solid var(--line)}
 html{scroll-behavior:smooth}
+
+/* contact / inquiry modal */
+.contact-btn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:none;border:1px solid var(--ink);padding:0 14px;height:32px;align-self:center;margin-left:14px;cursor:pointer;transition:background .15s,color .15s}
+.contact-btn:hover{background:var(--ink);color:var(--bg)}
+.contact{border:0;background:var(--bg);color:var(--ink);width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;padding:44px 40px 36px;margin:auto;box-shadow:0 20px 60px rgba(10,10,9,.28)}
+.contact::backdrop{background:rgba(10,10,9,.6)}
+.contact h2{font-weight:400;font-size:34px;letter-spacing:-.01em;line-height:1.1;margin-bottom:8px}
+.c-sub{color:var(--muted);margin-bottom:22px}
+.c-close-form{position:absolute;top:8px;right:12px}
+.c-x{background:none;border:0;font-size:30px;line-height:1;color:var(--muted);cursor:pointer;padding:8px}.c-x:hover{color:var(--ink)}
+.c-form label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.c-form input:not([type=checkbox]),.c-form textarea{display:block;width:100%;margin-top:6px;font-family:var(--mono);font-size:13px;letter-spacing:0;text-transform:none;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:0;padding:12px 14px}
+.c-form textarea{resize:vertical;min-height:110px}
+.c-form input:focus,.c-form textarea:focus{outline:none;border-color:var(--ink)}
+.c-form .c-check{display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:.02em;font-size:12px;color:var(--ink);cursor:pointer;margin-bottom:12px}
+.c-check input{width:16px;height:16px;accent-color:var(--ink);margin:0}
+.c-err{font-family:var(--mono);font-size:12px;color:var(--accent);min-height:18px;margin-bottom:8px}
+.c-send{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:14px 28px;cursor:pointer}
+.c-send:hover{background:var(--accent);border-color:var(--accent)}.c-send[disabled]{opacity:.5;cursor:wait}
+.c-done p{color:var(--muted);margin:10px 0 24px}
+@media(max-width:900px){.contact-btn{margin-left:4px;height:30px;padding:0 10px}.contact{padding:40px 22px 28px}}

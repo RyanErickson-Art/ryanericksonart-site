@@ -1,4 +1,38 @@
 (function(){
+ // contact / inquiry modal
+ var dlg=document.getElementById('contact'); if(dlg){
+  var form=dlg.querySelector('.c-form'),done=dlg.querySelector('.c-done'),err=dlg.querySelector('.c-err'),btn=dlg.querySelector('.c-send');
+  function open(e){if(e)e.preventDefault();form.hidden=false;done.hidden=true;err.textContent='';btn.disabled=false;if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');}
+  [].forEach.call(document.querySelectorAll('[data-contact]'),function(b){b.addEventListener('click',open);});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+  dlg.querySelector('.c-again').addEventListener('click',function(){form.reset();dlg.close();});
+  function subscribe(email){ // add to the MailerLite list through a hidden form post
+   var n='mlframe'+Date.now(),f=document.createElement('iframe');f.name=n;f.style.display='none';document.body.appendChild(f);
+   var h=document.createElement('form');h.method='post';h.action=dlg.getAttribute('data-ml');h.target=n;h.style.display='none';
+   [['fields[email]',email],['ml-submit','1'],['anticsrf','true']].forEach(function(kv){var i=document.createElement('input');i.type='hidden';i.name=kv[0];i.value=kv[1];h.appendChild(i);});
+   document.body.appendChild(h);h.submit();setTimeout(function(){h.remove();f.remove();},8000);
+  }
+  form.addEventListener('submit',function(e){
+   e.preventDefault(); err.textContent='';
+   var d=new FormData(form),name=(d.get('name')||'').trim(),email=(d.get('email')||'').trim(),msg=(d.get('message')||'').trim();
+   if(!name||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)||!msg){err.textContent='Please add your name, a valid email, and a message.';return;}
+   if(d.get('botcheck'))return;
+   var sub=!!d.get('subscribe'),key=dlg.getAttribute('data-key'),fallback=dlg.getAttribute('data-mailto');
+   function ok(){if(sub)subscribe(email);form.hidden=true;done.hidden=false;form.reset();}
+   if(!key){ // no form service configured yet: open the visitor's email app
+    if(!fallback){err.textContent='Sending is not set up yet.';return;}
+    window.location.href='mailto:'+fallback+'?subject='+encodeURIComponent('Inquiry from '+name)+'&body='+encodeURIComponent(msg+'\n\n'+name+' <'+email+'>');
+    ok();return;
+   }
+   btn.disabled=true;
+   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({access_key:key,subject:'Website inquiry from '+name,from_name:'ryanericksonart.com',name:name,email:email,message:msg,subscribe:sub?'yes':'no'})})
+   .then(function(r){return r.json();}).then(function(j){if(j.success)ok();else throw 0;})
+   .catch(function(){btn.disabled=false;err.textContent='Something went wrong. Please try again in a moment.';});
+  });
+ }
+})();
+(function(){
  // crossfading hero images
  document.querySelectorAll('.hero .bg').forEach(function(bg){
   var imgs=bg.querySelectorAll('img'); if(imgs.length<2) return; var i=0;

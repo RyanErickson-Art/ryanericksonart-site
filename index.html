@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="assets/style.css">
 </head><body>
 <nav class="nav"><a class="brand" href="index.html">Ryan Erickson</a>
-<div class="links"><a href="shape-of-language.html" class="on">Work</a><a href="writing.html">Writing</a><a href="biography.html">Biography</a><a class="sub" href="#signup">Subscribe</a></div></nav>
+<div class="links"><a href="shape-of-language.html" class="on">Work</a><a href="writing.html">Writing</a><a href="biography.html">Biography</a><a class="sub" href="#signup">Subscribe</a><button type="button" class="contact-btn" data-contact>Contact</button></div></nav>
 
 <header class="hero small"><div class="bg"><img src="images/shape-of-language/01-nope.jpg" alt="" class="on"><img src="images/shape-of-language/02-maybe.jpg" alt="" class=""><img src="images/shape-of-language/03-absolutely-not.jpg" alt="" class=""><img src="images/shape-of-language/04-please.jpg" alt="" class=""><img src="images/shape-of-language/05-yes.jpg" alt="" class=""><img src="images/shape-of-language/06-no.jpg" alt="" class=""></div><div class="shade"></div>
 <div class="hero-in"><div class="eyebrow">Text drawings</div><h1>The Shape of Language</h1><div class="hook"><span>Drawings that say</span><b data-words="Nope!|Yes!|Maybe?|Absolutely Not!|As if|Gross|Sucker">Nope!</b></div></div></header>
@@ -57,5 +57,20 @@
 <script>function ml_webform_success_46688807(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-46688807 .row-success').show();$('.ml-subscribe-form-46688807 .row-form').hide();}</script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/2682201/forms/200346558514857496/takel")</script>
-<footer class="foot"><span>© Ryan Erickson</span><span class="fl"><a href="mailto:ryanerickson303@gmail.com">Email</a><a href="https://www.instagram.com/ryanericksonart/">Instagram</a></span></footer>
+<footer class="foot"><span>© Ryan Erickson</span><span class="fl"><a href="#contact" data-contact>Inquiries</a><a href="https://www.instagram.com/ryanericksonart/">Instagram</a></span></footer>
+<dialog class="contact" id="contact" aria-labelledby="contact-h" data-key="" data-mailto="ryanerickson303@gmail.com" data-ml="https://assets.mailerlite.com/jsonp/2682201/forms/200346558514857496/subscribe">
+<form method="dialog" class="c-close-form"><button class="c-x" aria-label="Close">×</button></form>
+<form class="c-form" novalidate>
+<div class="label">Inquiries</div><h2 id="contact-h">Get in touch</h2>
+<p class="c-sub">Exhibitions, acquisitions, press, or just a note!</p>
+<label>Name<input name="name" autocomplete="name" required></label>
+<label>Email<input name="email" type="email" autocomplete="email" required></label>
+<label>Message<textarea name="message" rows="5" required></textarea></label>
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+<label class="c-check"><input type="checkbox" name="subscribe"> <span>Also add me to the mailing list</span></label>
+<div class="c-err" role="alert"></div>
+<button type="submit" class="c-send">Send</button>
+</form>
+<div class="c-done" hidden><h2>Thank you</h2><p>Your message is on its way. I'll reply soon.</p><button type="button" class="c-send c-again">Close</button></div>
+</dialog>
 <script src="assets/site.js"></script></body></html>
