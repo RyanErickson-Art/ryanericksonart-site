@@ -1,4 +1,10 @@
 (function(){
+ // newsletter popup (pages without the popup keep the link as a jump to the inline form)
+ var nd=document.getElementById('newsletter'); if(!nd) return;
+ [].forEach.call(document.querySelectorAll('[data-newsletter]'),function(a){a.addEventListener('click',function(e){e.preventDefault();if(nd.showModal)nd.showModal();else nd.setAttribute('open','');});});
+ nd.addEventListener('click',function(e){if(e.target===nd)nd.close();});
+})();
+(function(){
  // contact / inquiry modal
  var dlg=document.getElementById('contact'); if(dlg){
   var form=dlg.querySelector('.c-form'),done=dlg.querySelector('.c-done'),err=dlg.querySelector('.c-err'),btn=dlg.querySelector('.c-send');
