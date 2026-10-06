@@ -1,0 +1,6 @@
+# keep private files out of the public site
+*price*
+*sold*
+*buyer*
+works.json
+sheets-log.json
