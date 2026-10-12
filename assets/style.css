@@ -133,7 +133,7 @@ ul.mono{font-size:14px;margin:0}ul.mono li{font-size:14px;font-family:var(--mono
 .lb button:hover{color:#fff}.lb .x{top:14px;right:22px}.lb .p{left:14px;top:50%}.lb .n{right:14px;top:50%}
 /* mobile */
 @media(max-width:900px){
- .nav{padding:8px 20px}.links a{height:40px;padding:0 10px}.links a:last-child{padding-right:0}
+ .   .nav{padding:8px 20px}.links{min-width:0;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{height:40px;padding:0 10px;flex:0 0 auto}.links a:last-child{padding-right:0}
  .hero-in{padding:0 22px 34px}.intro{padding:44px 22px 36px}.wrap{padding:36px 22px 56px}.tabs{justify-content:flex-start;padding:0 12px}
  .bar,.cards,.follow,.foot{padding-left:22px;padding-right:22px}.lw{padding:30px 22px}
  .post{grid-template-columns:1fr;gap:20px}.bio-top{grid-template-columns:1fr;gap:28px}.cv-row{grid-template-columns:1fr;gap:10px}.cv-item{grid-template-columns:64px 1fr;gap:12px;font-size:17px}
